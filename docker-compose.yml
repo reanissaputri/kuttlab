@@ -1,0 +1,20 @@
+services:
+  server:
+    build:
+      context: .
+    volumes:
+       - db_data_sqlite:/var/lib/kutt
+       - custom:/kutt/custom
+    environment:
+      JWT_SECRET: "Y6-H2J1uUgE5AT_I47LUYWX7VAL6kNiAE3A60JIb"
+      DB_FILENAME: "/var/lib/kutt/data.sqlite"
+      SITE_NAME: "Kutt"
+      DEFAULT_DOMAIN: "localhost:3000"
+      DISALLOW_ANONYMOUS_LINKS: "true"
+      TRUST_PROXY: "true"
+      MAIL_ENABLED: "false"
+    ports:
+      - 3000:3000
+volumes:
+  db_data_sqlite:
+  custom:
